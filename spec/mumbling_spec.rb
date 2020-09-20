@@ -1,4 +1,5 @@
-require_relative "../mumbling"
+#for rspec files to work the file must end in _spec.rb !!
+require_relative "../lib/mumbling"
 
 describe 'testing tests' do
 
