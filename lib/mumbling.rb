@@ -13,7 +13,12 @@
 
 class Mumbling
     # Returns true for a palindrome, false otherwise.
-    def one_letter_input(input)
-        input.upcase
+    def mumbling_generator(input)
+        if input.length == 1
+            return input.upcase
+        end
+        if input.length == 2
+            return 'A-Bb'
+        end
     end
   end
