@@ -30,18 +30,18 @@ expected_output_2_letters.each do |input, output|
     end
 end
 
-#     expected_output_3_letters = {
-#     'abc' => 'A-Bb-Ccc',
-#     'bcd' => 'B-Cc-Ddd',
-#     'bCD' => 'B-Cc-Ddd',
-#     'Bcd' => 'B-Cc-Ddd',
-#     'BCD' => 'B-Cc-Ddd' 
-# }
+    expected_output_3_letters = {
+    'abc' => 'A-Bb-Ccc',
+    'bcd' => 'B-Cc-Ddd',
+    'bCD' => 'B-Cc-Ddd',
+    'Bcd' => 'B-Cc-Ddd',
+    'BCD' => 'B-Cc-Ddd' 
+}
 
-# expected_output_3_letters.each do |input, output|
-#     describe "3 letter tests with different cases" do
-#         it "returns #{output} when input is #{input}" do
-#             expect(Mumbling.new.mumbling_generator(input)).to eq(output)
-#         end
-#     end
-# end
+expected_output_3_letters.each do |input, output|
+    describe "3 letter tests with different cases" do
+        it "returns #{output} when input is #{input}" do
+            expect(Mumbling.new.mumble_letters(input)).to eq(output)
+        end
+    end
+end
