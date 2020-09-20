@@ -1,7 +1,7 @@
 class Mumbling
 
-    def test
-    2
+    def test(input)
+    input.upcase
     end
 
 end
