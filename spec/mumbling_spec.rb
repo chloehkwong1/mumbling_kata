@@ -14,24 +14,18 @@ describe "1 letter tests" do
     end
 end
 
-describe "2 letter tests" do
-    it "returns 'A-Bb' when input is 'ab'" do
-        expect(Mumbling.new.mumbling_generator('ab')).to eq('A-Bb')
-    end
+expected_output_2_letters = {
+    'ab' => 'A-Bb',
+    'bc' => 'B-Cc',
+    'bC' => 'B-Cc',
+    'Bc' => 'B-Cc',
+    'BC' => 'B-Cc' 
+}
 
-    it "returns 'B-Cc' when input is 'bc'" do
-        expect(Mumbling.new.mumbling_generator('bc')).to eq('B-Cc')
-    end
-
-    it "returns 'B-Cc' when input is 'BC'" do
-        expect(Mumbling.new.mumbling_generator('bc')).to eq('B-Cc')
-    end
-
-    it "returns 'B-Cc' when input is 'bC'" do
-        expect(Mumbling.new.mumbling_generator('bC')).to eq('B-Cc')
-    end
-
-    it "returns 'B-Cc' when input is 'Bc'" do
-        expect(Mumbling.new.mumbling_generator('Bc')).to eq('B-Cc')
+expected_output_2_letters.each do |input, output|
+    describe "2 letter tests with different cases" do
+        it "returns #{output} when input is #{input}" do
+            expect(Mumbling.new.mumbling_generator(input)).to eq(output)
+        end
     end
 end
