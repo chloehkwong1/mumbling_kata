@@ -18,7 +18,9 @@ class Mumbling
             return input.upcase
         end
         if input.length == 2
-            return 'A-Bb'
+            output = ""
+            output << "#{input[0].upcase}-"
+            output << "#{input[1].upcase}#{input[1].downcase}"
         end
     end
   end
