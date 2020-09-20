@@ -1,16 +1,16 @@
 require_relative "../lib/mumbling"
 
-describe "1 letter tests" do
-    it "returns a capitalised 'A' when input is 'a'" do
-        expect(Mumbling.new.mumbling_generator('a')).to eq('A')
-    end
+expected_output_1_letter = {
+    'a' => 'A',
+    'b' => 'B',
+    'C' => 'C',
+}
 
-    it "returns a capitalised 'B' when input is 'b'" do
-        expect(Mumbling.new.mumbling_generator('b')).to eq('B')
-    end
-
-    it "returns a capitalised 'C' when input is 'C'" do
-        expect(Mumbling.new.mumbling_generator('C')).to eq('C')
+expected_output_1_letter.each do |input, output|
+    describe "1 letter tests with different cases" do
+        it "returns #{output} when input is #{input}" do
+            expect(Mumbling.new.mumble_letters(input)).to eq(output)
+        end
     end
 end
 
@@ -24,6 +24,22 @@ expected_output_2_letters = {
 
 expected_output_2_letters.each do |input, output|
     describe "2 letter tests with different cases" do
+        it "returns #{output} when input is #{input}" do
+            expect(Mumbling.new.mumble_letters(input)).to eq(output)
+        end
+    end
+end
+
+    expected_output_3_letters = {
+    'abc' => 'A-Bb-Ccc',
+    'bcd' => 'B-Cc-Ddd',
+    'bCD' => 'B-Cc-Ddd',
+    'Bcd' => 'B-Cc-Ddd',
+    'BCD' => 'B-Cc-Ddd' 
+}
+
+expected_output_3_letters.each do |input, output|
+    describe "3 letter tests with different cases" do
         it "returns #{output} when input is #{input}" do
             expect(Mumbling.new.mumbling_generator(input)).to eq(output)
         end
