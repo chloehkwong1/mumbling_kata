@@ -13,24 +13,21 @@
 
 class Mumbling
     # Returns true for a palindrome, false otherwise.
-    def mumble_letters(input)
+    def self.mumble_letters(input)
         output = ""
-        if input.length == 1
-            output << input[0].upcase
+        count = 0
+        input.split('').each do |letter|
+            letter_upcase = letter.upcase
+            letter_downcase = letter.downcase
+            output << letter_upcase[0]
+            output << letter_downcase[0] * count
+            if letter != input.split('').last
+                output << "-"
+            end
+            count += 1
         end
-
-        if input.length == 2
-            output << input[0].upcase
-            output << "-#{input[1].upcase}#{input[1].downcase}"
-        end
-
-        if input.length == 3
-            output << input[0].upcase
-            output << "-#{input[1].upcase}#{input[1].downcase}"
-            output << "-#{input[2].upcase}#{input[2].downcase}#{input[2].downcase}"
-        end
-        output
-    end
+        return output
+    end   
   end
 
-  ############ Next job is to try and refactor so don't need to repeat code
+  ############ Next job is to try and refactor to tidy up!!!
